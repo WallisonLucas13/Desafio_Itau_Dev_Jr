@@ -14,6 +14,7 @@ import java.time.OffsetDateTime;
 import java.util.DoubleSummaryStatistics;
 import java.util.List;
 import java.util.UUID;
+import java.util.concurrent.CompletableFuture;
 
 @Service
 public class TransactionService {
@@ -28,7 +29,8 @@ public class TransactionService {
                 .value(dto.value())
                 .dateHour(dto.dateHour())
                 .build();
-        repository.save(transactionModel);
+
+        CompletableFuture.runAsync(() -> repository.save(transactionModel));
     }
 
     public void deleteTransactions(){
