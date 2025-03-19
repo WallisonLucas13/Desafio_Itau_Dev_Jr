@@ -19,7 +19,8 @@ public class GlobalExceptionHandler {
     }
 
     @ExceptionHandler({HttpMessageNotReadableException.class, JsonParseException.class, JsonMappingException.class})
-    public ResponseEntity<String> handleJsonBodyInvalidException(HttpMessageNotReadableException e) {
-        return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+    public ResponseEntity<String> handleJsonBodyInvalidException(Exception e) {
+        final String message = "Json inválido!";
+        return new ResponseEntity<>(message, HttpStatus.BAD_REQUEST);
     }
 }
