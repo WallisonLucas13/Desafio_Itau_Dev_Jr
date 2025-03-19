@@ -1,6 +1,8 @@
 package com.example.desafio.itau.services;
 
 import com.example.desafio.itau.dtos.TransactionDto;
+import com.example.desafio.itau.exceptions.FutureDateException;
+import com.example.desafio.itau.exceptions.NegativeValueException;
 import com.example.desafio.itau.models.TransactionModel;
 import com.example.desafio.itau.repositories.TransactionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,10 +34,10 @@ public class TransactionService {
 
     private void validateTransactionDto(TransactionDto dto){
         if(dto.value().compareTo(new BigDecimal(0)) < 0){
-            throw new IllegalArgumentException("Valor da transação não pode ser negativo");
+            throw new NegativeValueException("Valor da transação não pode ser negativo");
         }
         if(dto.dateHour().isAfter(OffsetDateTime.now())){
-            throw new IllegalArgumentException("Data da transação não pode ser futura");
+            throw new FutureDateException("Data da transação não pode ser futura");
         }
     }
 }
