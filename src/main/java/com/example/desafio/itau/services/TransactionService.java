@@ -42,7 +42,7 @@ public class TransactionService {
 
         if(transactions.isEmpty()) return new StatisticModel();
 
-        DoubleSummaryStatistics statistics = transactions.stream()
+        DoubleSummaryStatistics statistics = transactions.parallelStream()
                 .mapToDouble(transaction -> transaction.getValue().doubleValue())
                 .summaryStatistics();
 
@@ -57,7 +57,7 @@ public class TransactionService {
 
     private List<TransactionModel> getTransactionsWithLimitSeconds(int seconds){
         OffsetDateTime nowMinusSeconds = OffsetDateTime.now().minusSeconds(seconds);
-        return repository.findAll().stream()
+        return repository.findAll().parallelStream()
                 .filter(transaction -> transaction.getDateHour().isAfter(nowMinusSeconds))
                 .toList();
     }
