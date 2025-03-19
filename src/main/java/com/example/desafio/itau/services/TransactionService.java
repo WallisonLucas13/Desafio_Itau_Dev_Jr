@@ -26,6 +26,10 @@ public class TransactionService {
         repository.save(transactionModel);
     }
 
+    public void deleteTransactions(){
+        repository.deleteAll();
+    }
+
     private void validateTransactionDto(TransactionDto dto){
         if(dto.value().compareTo(new BigDecimal(0)) < 0){
             throw new IllegalArgumentException("Valor da transação não pode ser negativo");

@@ -20,4 +20,11 @@ public class TransactionController {
         service.saveTransaction(dto);
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
+
+    @DeleteMapping("/transacao")
+    @ResponseStatus(HttpStatus.OK)
+    public ResponseEntity<String> deleteTransactions(){
+        service.deleteTransactions();
+        return ResponseEntity.status(HttpStatus.OK).build();
+    }
 }
