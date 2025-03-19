@@ -1,5 +1,6 @@
 package com.example.desafio.itau.controllers;
 
+import com.example.desafio.itau.controllers.doc.TransactionControllerSwagger;
 import com.example.desafio.itau.dtos.TransactionDto;
 import com.example.desafio.itau.models.StatisticModel;
 import com.example.desafio.itau.services.TransactionService;
@@ -10,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/v1")
-public class TransactionController {
+public class TransactionController implements TransactionControllerSwagger {
 
     private static final String DEFAULT_SECONDS = "60";
 
@@ -19,6 +20,7 @@ public class TransactionController {
 
     @PostMapping("/transacao")
     @ResponseStatus(HttpStatus.CREATED)
+    @Override
     public ResponseEntity<String> saveTransaction(@RequestBody TransactionDto dto){
         service.saveTransaction(dto);
         return ResponseEntity.status(HttpStatus.CREATED).build();
@@ -26,6 +28,7 @@ public class TransactionController {
 
     @DeleteMapping("/transacao")
     @ResponseStatus(HttpStatus.OK)
+    @Override
     public ResponseEntity<String> deleteTransactions(){
         service.deleteTransactions();
         return ResponseEntity.status(HttpStatus.OK).build();
@@ -33,6 +36,7 @@ public class TransactionController {
 
     @GetMapping("/estatistica")
     @ResponseStatus(HttpStatus.OK)
+    @Override
     public ResponseEntity<StatisticModel> getStatistic(
             @RequestParam(value = "segundos", required = false, defaultValue = DEFAULT_SECONDS) int seconds
     ){
