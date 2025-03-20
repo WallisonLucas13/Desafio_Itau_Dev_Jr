@@ -130,9 +130,9 @@ public class TransactionServiceTest {
 
         List<TransactionModel> transactionsMock = List.of(
                 new TransactionModel(UUID.randomUUID(), new BigDecimal("10.0"), OffsetDateTime.now()),
-                new TransactionModel(UUID.randomUUID(), new BigDecimal("20.0"), OffsetDateTime.now()),
-                new TransactionModel(UUID.randomUUID(), new BigDecimal("30.0"), OffsetDateTime.now()),
-                new TransactionModel(UUID.randomUUID(), new BigDecimal("40.0"), OffsetDateTime.now())
+                new TransactionModel(UUID.randomUUID(), new BigDecimal("20.0"), OffsetDateTime.now().minusSeconds(DEFAULT_SECONDS - 1)),
+                new TransactionModel(UUID.randomUUID(), new BigDecimal("30.0"), OffsetDateTime.now().minusSeconds(DEFAULT_SECONDS - 10)),
+                new TransactionModel(UUID.randomUUID(), new BigDecimal("40.0"), OffsetDateTime.now().minusSeconds(DEFAULT_SECONDS - 20))
         );
 
         Mockito.when(transactionRepository.findAll()).thenReturn(transactionsMock);
@@ -151,9 +151,9 @@ public class TransactionServiceTest {
 
         List<TransactionModel> transactionsMock = List.of(
                 new TransactionModel(UUID.randomUUID(), new BigDecimal("10.0"), OffsetDateTime.now().minusSeconds(DEFAULT_SECONDS + 1)),
-                new TransactionModel(UUID.randomUUID(), new BigDecimal("20.0"), OffsetDateTime.now().minusSeconds(DEFAULT_SECONDS + 1)),
-                new TransactionModel(UUID.randomUUID(), new BigDecimal("30.0"), OffsetDateTime.now().minusSeconds(DEFAULT_SECONDS + 1)),
-                new TransactionModel(UUID.randomUUID(), new BigDecimal("40.0"), OffsetDateTime.now().minusSeconds(DEFAULT_SECONDS + 1))
+                new TransactionModel(UUID.randomUUID(), new BigDecimal("20.0"), OffsetDateTime.now().minusSeconds(DEFAULT_SECONDS + 10)),
+                new TransactionModel(UUID.randomUUID(), new BigDecimal("30.0"), OffsetDateTime.now().minusSeconds(DEFAULT_SECONDS + 20)),
+                new TransactionModel(UUID.randomUUID(), new BigDecimal("40.0"), OffsetDateTime.now().minusSeconds(DEFAULT_SECONDS + 30))
         );
 
         Mockito.when(transactionRepository.findAll()).thenReturn(transactionsMock);
