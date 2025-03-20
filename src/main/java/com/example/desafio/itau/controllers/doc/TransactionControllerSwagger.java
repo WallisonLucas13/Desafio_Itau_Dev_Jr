@@ -3,6 +3,7 @@ package com.example.desafio.itau.controllers.doc;
 import com.example.desafio.itau.dtos.TransactionDto;
 import com.example.desafio.itau.models.StatisticModel;
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.parameters.RequestBody;
@@ -40,5 +41,8 @@ public interface TransactionControllerSwagger {
             description = "Estatísticas recuperadas",
             content = @Content(schema = @Schema(implementation = StatisticModel.class))
     )
-    ResponseEntity<StatisticModel> getStatistic(long seconds);
+    ResponseEntity<StatisticModel> getStatistic(
+            @Parameter(description = "Intervalo de tempo em segundos para obter as estatísticas", required = false)
+            long timeInterval
+    );
 }

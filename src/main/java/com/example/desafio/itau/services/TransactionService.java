@@ -37,8 +37,8 @@ public class TransactionService {
         repository.deleteAll();
     }
 
-    public StatisticModel getStatistic(long seconds){
-        List<TransactionModel> transactions = this.getTransactionsWithLimitSeconds(seconds);
+    public StatisticModel getStatistic(long timeInterval){
+        List<TransactionModel> transactions = this.getTransactionsWithLimitSeconds(timeInterval);
 
         if(transactions.isEmpty()) return new StatisticModel();
 
@@ -55,8 +55,8 @@ public class TransactionService {
                 .build();
     }
 
-    private List<TransactionModel> getTransactionsWithLimitSeconds(long seconds){
-        OffsetDateTime nowMinusSeconds = OffsetDateTime.now().minusSeconds(seconds);
+    private List<TransactionModel> getTransactionsWithLimitSeconds(long timeInterval){
+        OffsetDateTime nowMinusSeconds = OffsetDateTime.now().minusSeconds(timeInterval);
         return repository.findAll().parallelStream()
                 .filter(transaction -> transaction.getDateHour().isAfter(nowMinusSeconds))
                 .toList();

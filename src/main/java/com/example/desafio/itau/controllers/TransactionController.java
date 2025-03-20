@@ -38,8 +38,8 @@ public class TransactionController implements TransactionControllerSwagger {
     @ResponseStatus(HttpStatus.OK)
     @Override
     public ResponseEntity<StatisticModel> getStatistic(
-            @RequestParam(value = "segundos", required = false, defaultValue = DEFAULT_SECONDS) long seconds
+            @RequestParam(value = "intervalo", required = false, defaultValue = DEFAULT_SECONDS) long timeInterval
     ){
-        return ResponseEntity.status(HttpStatus.OK).body(service.getStatistic(seconds));
+        return ResponseEntity.status(HttpStatus.OK).body(service.getStatistic(timeInterval));
     }
 }
