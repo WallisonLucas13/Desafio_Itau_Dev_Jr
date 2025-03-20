@@ -82,7 +82,7 @@ public class TransactionControllerTest {
         StatisticModel statisticMock = Instancio.create(StatisticModel.class);
         Mockito.when(transactionService.getStatistic(360)).thenReturn(statisticMock);
 
-        String responseStr = mockMvc.perform(get("/api/v1/estatistica").param("segundos", "360"))
+        String responseStr = mockMvc.perform(get("/api/v1/estatistica").param("intervalo", "360"))
                 .andExpect(status().isOk())
                 .andReturn().getResponse().getContentAsString();
 
