@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.example</groupId>
-	<artifactId>desafio.itau</artifactId>
+	<artifactId>transacao</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>desafio.itau</name>
-	<description>Desafio do Itau</description>
+	<name>api.transacao</name>
+	<description>API de Transacoes</description>
 	<url/>
 	<licenses>
 		<license/>
@@ -92,6 +92,11 @@
 						</exclude>
 					</excludes>
 				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-resources-plugin</artifactId>
+				<version>3.1.0</version>
 			</plugin>
 		</plugins>
 	</build>
