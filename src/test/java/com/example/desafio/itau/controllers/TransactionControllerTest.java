@@ -46,7 +46,7 @@ public class TransactionControllerTest {
     @Test
     void testSaveTransaction() throws Exception {
         TransactionDto dto = new TransactionDto(new BigDecimal("10.0"), OffsetDateTime.now());
-        mockMvc.perform(post("/api/v1/transacao")
+        mockMvc.perform(post("/transacao")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(objectMapper.writeValueAsString(dto)))
                 .andExpect(status().isCreated());
@@ -56,7 +56,7 @@ public class TransactionControllerTest {
 
     @Test
     void testDeleteTransactions() throws Exception {
-        mockMvc.perform(delete("/api/v1/transacao"))
+        mockMvc.perform(delete("/transacao"))
                 .andExpect(status().isOk());
 
         Mockito.verify(transactionService, Mockito.times(1)).deleteTransactions();
@@ -67,7 +67,7 @@ public class TransactionControllerTest {
         StatisticModel statisticMock = Instancio.create(StatisticModel.class);
         Mockito.when(transactionService.getStatistic(60)).thenReturn(statisticMock);
 
-        String responseStr = mockMvc.perform(get("/api/v1/estatistica"))
+        String responseStr = mockMvc.perform(get("/estatistica"))
                 .andExpect(status().isOk())
                 .andReturn().getResponse().getContentAsString();
 
@@ -82,7 +82,7 @@ public class TransactionControllerTest {
         StatisticModel statisticMock = Instancio.create(StatisticModel.class);
         Mockito.when(transactionService.getStatistic(360)).thenReturn(statisticMock);
 
-        String responseStr = mockMvc.perform(get("/api/v1/estatistica").param("intervalo", "360"))
+        String responseStr = mockMvc.perform(get("/estatistica").param("intervalo", "360"))
                 .andExpect(status().isOk())
                 .andReturn().getResponse().getContentAsString();
 
