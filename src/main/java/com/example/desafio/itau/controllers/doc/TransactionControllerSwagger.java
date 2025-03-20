@@ -40,5 +40,5 @@ public interface TransactionControllerSwagger {
             description = "Estatísticas recuperadas",
             content = @Content(schema = @Schema(implementation = StatisticModel.class))
     )
-    ResponseEntity<StatisticModel> getStatistic(int seconds);
+    ResponseEntity<StatisticModel> getStatistic(long seconds);
 }

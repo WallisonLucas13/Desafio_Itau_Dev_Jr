@@ -38,7 +38,7 @@ public class TransactionController implements TransactionControllerSwagger {
     @ResponseStatus(HttpStatus.OK)
     @Override
     public ResponseEntity<StatisticModel> getStatistic(
-            @RequestParam(value = "segundos", required = false, defaultValue = DEFAULT_SECONDS) int seconds
+            @RequestParam(value = "segundos", required = false, defaultValue = DEFAULT_SECONDS) long seconds
     ){
         return ResponseEntity.status(HttpStatus.OK).body(service.getStatistic(seconds));
     }
