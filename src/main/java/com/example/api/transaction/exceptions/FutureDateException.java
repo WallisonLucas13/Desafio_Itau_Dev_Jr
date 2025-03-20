@@ -1,4 +1,4 @@
-package com.example.desafio.itau.exceptions;
+package com.example.api.transaction.exceptions;
 
 public class FutureDateException extends RuntimeException {
     public FutureDateException(String message) {

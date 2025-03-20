@@ -1,6 +1,6 @@
-package com.example.desafio.itau.repositories;
+package com.example.api.transaction.repositories;
 
-import com.example.desafio.itau.models.TransactionModel;
+import com.example.api.transaction.models.TransactionModel;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Repository;
 

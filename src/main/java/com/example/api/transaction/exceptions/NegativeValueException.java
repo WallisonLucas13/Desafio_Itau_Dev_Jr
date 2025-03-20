@@ -1,4 +1,4 @@
-package com.example.desafio.itau.exceptions;
+package com.example.api.transaction.exceptions;
 
 public class NegativeValueException extends RuntimeException {
     public NegativeValueException(String message) {

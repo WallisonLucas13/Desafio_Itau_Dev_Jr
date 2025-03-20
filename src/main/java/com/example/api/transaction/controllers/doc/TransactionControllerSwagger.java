@@ -1,7 +1,7 @@
-package com.example.desafio.itau.controllers.doc;
+package com.example.api.transaction.controllers.doc;
 
-import com.example.desafio.itau.dtos.TransactionDto;
-import com.example.desafio.itau.models.StatisticModel;
+import com.example.api.transaction.dtos.TransactionDto;
+import com.example.api.transaction.models.StatisticModel;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.media.Content;
@@ -35,7 +35,7 @@ public interface TransactionControllerSwagger {
     )
     ResponseEntity<Void> deleteTransactions();
 
-    @Operation(summary = "Obter estatísticas")
+    @Operation(summary = "Obter estatísticas das transações")
     @ApiResponse(
             responseCode = "200",
             description = "Estatísticas recuperadas",

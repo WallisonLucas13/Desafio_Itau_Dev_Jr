@@ -1,8 +1,8 @@
-package com.example.desafio.itau.controllers;
+package com.example.api.transaction.controllers;
 
-import com.example.desafio.itau.dtos.TransactionDto;
-import com.example.desafio.itau.models.StatisticModel;
-import com.example.desafio.itau.services.TransactionService;
+import com.example.api.transaction.dtos.TransactionDto;
+import com.example.api.transaction.services.TransactionService;
+import com.example.api.transaction.models.StatisticModel;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import org.instancio.Instancio;

@@ -1,4 +1,4 @@
-package com.example.desafio.itau.dtos;
+package com.example.api.transaction.dtos;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 

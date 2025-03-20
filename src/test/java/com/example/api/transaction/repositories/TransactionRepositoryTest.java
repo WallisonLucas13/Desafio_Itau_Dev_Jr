@@ -1,6 +1,6 @@
-package com.example.desafio.itau.repositories;
+package com.example.api.transaction.repositories;
 
-import com.example.desafio.itau.models.TransactionModel;
+import com.example.api.transaction.models.TransactionModel;
 import org.instancio.Instancio;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

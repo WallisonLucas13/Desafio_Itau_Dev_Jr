@@ -1,4 +1,4 @@
-package com.example.desafio.itau.models;
+package com.example.api.transaction.models;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
