@@ -21,7 +21,7 @@ public class TransactionController implements TransactionControllerSwagger {
     @PostMapping("/transacao")
     @ResponseStatus(HttpStatus.CREATED)
     @Override
-    public ResponseEntity<String> saveTransaction(@RequestBody TransactionDto dto){
+    public ResponseEntity<Void> saveTransaction(@RequestBody TransactionDto dto){
         service.saveTransaction(dto);
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
@@ -29,7 +29,7 @@ public class TransactionController implements TransactionControllerSwagger {
     @DeleteMapping("/transacao")
     @ResponseStatus(HttpStatus.OK)
     @Override
-    public ResponseEntity<String> deleteTransactions(){
+    public ResponseEntity<Void> deleteTransactions(){
         service.deleteTransactions();
         return ResponseEntity.status(HttpStatus.OK).build();
     }

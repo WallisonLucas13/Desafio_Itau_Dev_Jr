@@ -20,7 +20,7 @@ public interface TransactionControllerSwagger {
             @ApiResponse(responseCode = "400", description = "Json inválido"),
             @ApiResponse(responseCode = "422", description = "Valor negativo ou data futura")
     })
-    ResponseEntity<String> saveTransaction(
+    ResponseEntity<Void> saveTransaction(
             @RequestBody(
                     description = "Transação a ser salva",
                     required = true,
@@ -33,7 +33,7 @@ public interface TransactionControllerSwagger {
             responseCode = "200",
             description = "Todas as transações deletadas com sucesso"
     )
-    ResponseEntity<String> deleteTransactions();
+    ResponseEntity<Void> deleteTransactions();
 
     @Operation(summary = "Obter estatísticas")
     @ApiResponse(

@@ -6,6 +6,7 @@ import com.example.desafio.itau.exceptions.NegativeValueException;
 import com.example.desafio.itau.models.StatisticModel;
 import com.example.desafio.itau.models.TransactionModel;
 import com.example.desafio.itau.repositories.TransactionRepository;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,6 +17,7 @@ import java.util.List;
 import java.util.UUID;
 import java.util.concurrent.CompletableFuture;
 
+@Slf4j
 @Service
 public class TransactionService {
 
@@ -39,6 +41,7 @@ public class TransactionService {
 
     public StatisticModel getStatistic(long timeInterval){
         List<TransactionModel> transactions = this.getTransactionsWithLimitSeconds(timeInterval);
+        log.info("Calculando estatisticas...");
 
         if(transactions.isEmpty()) return new StatisticModel();
 
